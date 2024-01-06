@@ -1,0 +1,106 @@
+﻿@model CampusCom.Models.COMMUNITY
+
+@{
+    ViewBag.Title = "Create";
+    ViewBag.Header = "CREATE COMMUNITY";
+    ViewBag.Subheader = "Enter the details of the community you wish to create.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var accessLevels = new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Private", Value = "Private" },
+        new SelectListItem { Text = "Public", Value = "Public" }
+    };
+
+    var category = new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Academic", Value = "Academic" },
+        new SelectListItem { Text = "Social", Value = "Social" },
+        new SelectListItem { Text = "Sport", Value = "Sport" },
+        new SelectListItem { Text = "Political", Value = "Political" },
+        new SelectListItem { Text = "Business", Value = "Business" },
+        new SelectListItem { Text = "Outreach", Value = "Outreach" },
+        new SelectListItem { Text = "Recreational", Value = "Recreational" },
+        new SelectListItem { Text = "Spiritual", Value = "Spiritual" }
+
+    };
+
+    var Status = new List<SelectListItem>
+{
+    new SelectListItem { Text = "Pending", Value = "Pending" }
+};
+}
+
+<div class="actual-top">
+    <h1>Create New Community</h1>
+    <p>Create, own and control your own community.</p>
+</div>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "lbl-form" })
+    <br />
+    @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "input-cont" } })
+    @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+
+
+    @Html.LabelFor(model => model.ComName, htmlAttributes: new { @class = "lbl-form" })
+    <br />
+    @Html.EditorFor(model => model.ComName, new { htmlAttributes = new { @class = "input-cont" } })
+    @Html.ValidationMessageFor(model => model.ComName, "", new { @class = "text-danger" })
+
+
+    @Html.LabelFor(model => model.ComDescr, htmlAttributes: new { @class = "lbl-form" })
+    <br />
+    @Html.EditorFor(model => model.ComDescr, new { htmlAttributes = new { @class = "input-cont" } })
+    @Html.ValidationMessageFor(model => model.ComDescr, "", new { @class = "text-danger" })
+
+
+    @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "lbl-form" })
+    <br />
+    @Html.DropDownList("Category", category, "Academic", new { htmlAttributes = new { @class = "input-cont" } })
+    @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+
+
+    @Html.LabelFor(model => model.Privacy, htmlAttributes: new { @class = "lbl-form" })
+    <br />
+    @Html.DropDownList("Privacy", accessLevels, "Private", new { htmlAttributes = new { @class = "input-cont" } })
+    @Html.ValidationMessageFor(model => model.Privacy, "", new { @class = "text-danger" })
+
+
+    @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "lbl-form" })
+    <br />
+    @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "input-cont" } })
+    @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+
+
+    @Html.LabelFor(model => model.ComStatus, htmlAttributes: new { @class = "lbl-form" })
+    <br />
+    @Html.DropDownList("ComStatus", Status, "Pending", new { htmlAttributes = new { @class = "input-cont" } })
+    @Html.ValidationMessageFor(model => model.ComStatus, "", new { @class = "text-danger" })
+
+
+    @Html.LabelFor(model => model.ComImg, htmlAttributes: new { @class = "lbl-form" })
+    <br />
+    @*@Html.EditorFor(model => model.ComImg, new { htmlAttributes = new { @class = "input-cont" } })*@
+    @*@Html.EditorFor(model => model.ComImg, new { htmlAttributes = new { @class = "input-cont", type = "file", id = "ComImg", name = "ComImg" } })*@
+    @*@Html.TextBoxFor(model => model.ComImg, new { type = "file", id = "ComImg", name = "ComImg" })*@
+    @*<input type="file" name="ComImg" value="" id="ComImg"/>*@
+    @Html.EditorFor(model => model.ComImg, new { htmlAttributes = new { @class = "input-cont" } })
+    @Html.ValidationMessageFor(model => model.ComImg, "", new { @class = "text-danger" })
+
+    <div class="submit-btn-div">
+        <button type="submit" class="sub-btn">CREATE</button>
+    </div>
+</div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

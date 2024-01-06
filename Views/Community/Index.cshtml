@@ -1,0 +1,80 @@
+﻿@model IEnumerable<CampusCom.Models.COMMUNITY>
+
+@{
+    ViewBag.Title = "Community List";
+    ViewBag.Header = "COMMUNITY LIST";
+    ViewBag.Subheader = "The list of communities that exist. Feel free to explore.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Community", null, new { @class = "" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComDescr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Privacy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComImg)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComDescr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Privacy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComImg)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ComId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ComId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ComId })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
