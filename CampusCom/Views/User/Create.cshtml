@@ -1,0 +1,216 @@
+﻿@model CampusCom.Models.USER
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LoginRegLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Create", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="RegisterLoginHeadingTXT">Creat a Campus Com Account</div>
+        @*<div class="b">
+                @Html.ActionLink("Back to List", "Index")
+            </div>*@
+        @*<h2 id="CreATE">Start your Journey</h2>*@
+        <div class="registerRow">
+            <div class="leftSide"></div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+
+                <table id="registerTable">
+                    <tr>
+                        <td colspan="2">
+                            @Html.Label("imageFile", "Select a Profile Picture:", new { @class = "create-label" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <img id="imagePreview" src="~/Uploads/UserDefaultPic.jpg" alt="Profile Picture" />
+                            <input type="file" name="imageFile" id="imageFile" onchange="displayImagePreview(this)" title="Profile Picture Update" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="Labels">
+                            @Html.LabelFor(model => model.UserName, "Username:", htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Username" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="Labels">
+                            @Html.LabelFor(model => model.FirstName, "Name:", htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="Labels">
+                            @Html.LabelFor(model => model.LastName, "Surname:", htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Surname" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="Labels">@Html.LabelFor(model => model.DoB, "Date of Birth:", htmlAttributes: new { @class = "control-label" })</td>
+                        <td>
+                            @Html.EditorFor(model => model.DoB, new { htmlAttributes = new { @class = "form-control", @placeholder = "Date of birth" } })
+                            @Html.ValidationMessageFor(model => model.DoB, "", new { @class = "text-danger" })
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="Labels">  @Html.LabelFor(model => model.Email, "E-mail:", htmlAttributes: new { @class = "control-label" })</td>
+                        <td>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "E-mail Adress", type = "email" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="Labels">   @Html.LabelFor(model => model.sNum, "Student Number:", htmlAttributes: new { @class = "control-label" })</td>
+                        <td>
+                            @Html.EditorFor(model => model.sNum, new { htmlAttributes = new { @class = "form-control", @placeholder = "Studen Number" } })
+                            @Html.ValidationMessageFor(model => model.sNum, "", new { @class = "text-danger" })
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="Labels">
+                            @Html.LabelFor(model => model.Contact, "Phone Number:", htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "form-control", @placeholder = "Contact Number", type = "tel" } })
+
+                            @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+             
+
+                    <tr>
+                        <td class="Labels">
+                            @Html.LabelFor(model => model.Passwd, "Password:", htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                @Html.EditorFor(model => model.Passwd, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password", type = "password" } })
+                             
+                                <span class="input-group-text">
+                                    <i class="fas fa-eye" id="togglePassword" style="cursor: pointer; background-color: white; color: black;"></i>
+                                </span>
+                            
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Passwd, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="Labels">
+                            @Html.Label("ConfirmPasswd", "Confirm Password:", new { @class = "control-label" })
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password">
+                                <span class="input-group-text">
+                                    <i class="fas fa-eye" id="toggleConfirmPassword" style="cursor: pointer; background-color: white; color: black;"></i>
+                                </span>
+                            </div>
+                            @Html.ValidationMessage("confirmPassword", "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                </table>
+
+                <div class="MoveSubmitbtn">
+                    <input type="submit" value="Submit" class="submitbtn" />
+                </div>
+
+            </div>
+            <div class="rightSide"></div>
+        </div>
+    </div>
+
+}
+<script>
+    function openFileInput() {
+        const fileInput = document.getElementById("fileInput");
+        fileInput.click();
+    }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const passwordInput = document.querySelector('#Passwd'); // Correct the ID to match your input element.
+        const togglePassword = document.querySelector('#togglePassword');
+
+        togglePassword.addEventListener('click', function () {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    });
+</script>
+<script>
+    function displayImagePreview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#imagePreview').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+<script>
+    document.getElementById('togglePassword').addEventListener('click', togglePasswordVisibility);
+    document.getElementById('toggleConfirmPassword').addEventListener('click', toggleConfirmPasswordVisibility);
+
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById('password');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+        } else {
+            passwordInput.type = 'password';
+        }
+    }
+
+    function toggleConfirmPasswordVisibility() {
+        var confirmPasswordInput = document.getElementById('confirmPassword');
+        if (confirmPasswordInput.type === 'password') {
+            confirmPasswordInput.type = 'text';
+        } else {
+            confirmPasswordInput.type = 'password';
+        }
+    }
+
+    document.getElementById('password').addEventListener('input', function () {
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+        if (password === confirmPassword) {
+            // Passwords match, you can provide user feedback here.
+        } else {
+            // Passwords don't match, you can provide user feedback here.
+        }
+    });
+
+    document.getElementById('confirmPassword').addEventListener('input', function () {
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+        if (password === confirmPassword) {
+            // Passwords match, you can provide user feedback here.
+        } else {
+            // Passwords don't match, you can provide user feedback here.
+        }
+    });
+</script>

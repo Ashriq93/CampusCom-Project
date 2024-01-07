@@ -1,0 +1,64 @@
+﻿@*@model CampusCom.Models.COMMUNITY*@
+@model CampusCom.Models.CommunityMemberViewModel
+
+@{
+    ViewBag.Title = "Community Details";
+    ViewBag.Header = Model.Community.ComName;
+    ViewBag.Subheader = "This community's information, as per user request. Feel free to explore.";
+    Layout = "~/Views/Shared/_Community.cshtml";
+
+    
+}
+
+<div class="header-bar">
+    <div>
+        <h1 class="header-text">@ViewBag.Header</h1>
+        <div class="com-nav">
+            <a href="@Url.Action("DetailsMem", "MyCommunity", new { id = Model.Community.ComId })" class="active-com-nav">Members</a>
+            <a href="@Url.Action("Details", "MyCommunity", new { id = Model.Community.ComId })">Posts</a>
+            <a href="@Url.Action("DetailsBroad", "MyCommunity", new { id = Model.Community.ComId })">Broadcast</a>
+            <a href="@Url.Action("Edit", "MyCommunity", new { id = Model.Community.ComId })">Settings</a>
+        </div>
+    </div>
+</div>
+
+<div id="app-content">
+    <div class="actual-content">
+        <div class="actual-top">
+            <h1>Community Members</h1>
+            <p><small>See the members who have joined your community, you may remove them.</small></p>
+        </div>
+
+        <div class="post-div">
+
+            @if (Model.MemberList != null && Model.MemberList.Count > 0)
+            {
+
+                <ul>
+                    @foreach (var member in Model.MemberList)
+                    {
+
+                     
+
+                        <div class="post-hr"></div>
+                        <li class="post">
+                            <h3 class="post-title">@member.USER.UserName</h3>
+                            <p class="post-msg">Member ID: @member.MemId</p>
+                            <p class="post-msg">Is Owner: @member.isOwner</p>
+
+                            <a href="/Membership/Delete/@member.MemId">Remove</a>
+                            @*@Html.ActionLink("Delete", "Delete", "Membership", new { id = member.MemId })*@
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No members available for this community.</p>
+            }
+
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,135 @@
+﻿@model CampusCom.Models.USER
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Header = "Edit Your Profile:";
+}
+
+@using (Html.BeginForm("Edit", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.UserID)
+
+        <div class="epRow">
+            < class="epcol">
+                <table class="editProfileTable">
+                    <!-- Profile Picture -->
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            @Html.Label("imageFile", "Update Profile Picture:", new { @class = "create-label" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <img id="imagePreview" src="@Url.Action("GetImage", "User", new { id = Model.UserID })" alt="Profile Picture" style="display: block; margin: 0 auto;" />
+                            <input type="file" name="imageFile" id="imageFile" onchange="displayImagePreview(this)" title="Profile Picture Update" />
+                        </td>
+                    </tr>
+                    <!-- User Details -->
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.UserName, "Username:", htmlAttributes: new { @class = "control-label col-md-2", @id = "editUserLabel" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "eptb" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.FirstName, "Name:", htmlAttributes: new { @class = "control-label col-md-2", @id = "editUserLabel" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "eptb" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> @Html.LabelFor(model => model.LastName, "Surname:", htmlAttributes: new { @class = "control-label col-md-2", @id = "editUserLabel" })</td>
+                        <td>
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "eptb" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Email, "E-mail Address:", htmlAttributes: new { @class = "control-label col-md-2", @id = "editUserLabel" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "eptb" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Contact, "Phonenumber:", htmlAttributes: new { @class = "control-label col-md-2", @id = "editUserLabel" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "eptb", type = "tel" } })
+                            @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.DoB, "Date of birth:", htmlAttributes: new { @class = "control-label col-md-2", @id = "editUserLabel" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.DoB, new { htmlAttributes = new { @class = "eptb" } })
+                            @Html.ValidationMessageFor(model => model.DoB, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="Labels">
+                            @Html.LabelFor(model => model.Passwd, "Password:", htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td>
+                          
+                                @Html.EditorFor(model => model.Passwd, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password", type = "password" } })
+
+                                @*<span class="input-group-text">
+                                    <i class="fas fa-eye" id="togglePassword" style="cursor: pointer; background-color: white; color: black;"></i>
+                                </span>*@
+                            @Html.ValidationMessageFor(model => model.Passwd, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="Labels">
+                            @Html.Label("ConfirmPasswd", "Confirm Password:", new { @class = "control-label" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Passwd, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password", type = "password" } })
+                            @Html.ValidationMessage("confirmPassword", "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <!-- Save Button -->
+                    <tr>
+                        <th colspan="2" style="text-align: center; vertical-align: middle;">
+                            <div class="form-group" style="display: inline-block;">
+                                <div class="mvSbtn">
+                                    <Button type="submit" value="Save" class="svbtn">SAVE</Button>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+   
+}
+
+
+<script>
+    function displayImagePreview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#imagePreview').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

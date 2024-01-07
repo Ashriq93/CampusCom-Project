@@ -1,0 +1,146 @@
+﻿@model CampusCom.Models.userInfo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Header = "A community that welcomes:";
+}
+
+@*<h2>A community that welcomes:</h2>*@
+<br />
+<div class="detailPage">
+    <div class="vPcol2">
+        @Html.DisplayNameFor(model => model.ProfilePic)
+        <br />
+        @Html.DisplayFor(model => model.ProfilePic)
+
+    </div>
+    @*<h4>A Community that welcomes</h4>*@
+
+    <hr />
+    <div class="vPRow">
+        <div class="vPcol">
+            <table class="viewProfile">
+                <tr>
+                    <td> Username:</td>
+                    <td> @Html.DisplayFor(model => model.Username)</td>
+                </tr>
+                <tr>
+                    <td>  @Html.DisplayNameFor(model => model.Name):</td>
+                    <td>  @Html.DisplayFor(model => model.Name)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Surname):</td>
+                    <td>  @Html.DisplayFor(model => model.Surname)</td>
+                </tr>
+                <tr>
+                    <td> E-mail:</td>
+                    <td> @Html.DisplayFor(model => model.EmailAddress)</td>
+                </tr>
+                <tr>
+                    <td> Phone number:</td>
+                    <td> @Html.DisplayFor(model => model.PhoneNumber)</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    @*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Surname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EmailAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProfilePic)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProfilePic)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.dOb)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dOb)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.passWord)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.passWord)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.role)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.role)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.sNum)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.sNum)
+            </dd>
+
+        </dl>*@
+</div>
+<table class="btnTableVP">
+    <tr>
+        <td class="detailsBtnOrg">
+            <div id="UpdateProfileBtn">
+                @Html.ActionLink("Update Profile", "Edit", new { id = Model.Id })
+            </div>
+        </td>
+        <td id="detailsBtnOrg">
+            <div id="DeleteProfileBtn">
+                @Html.ActionLink("Delete Profile", "Index")
+            </div>
+        </td>
+    </tr>
+</table>
+

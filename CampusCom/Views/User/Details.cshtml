@@ -1,0 +1,71 @@
+﻿@model CampusCom.Models.USER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Header = "A community that welcomes:";
+}
+<br />
+<br />
+<div class="detailPage">
+    <div class="vPcol2">
+        @*@Html.DisplayNameFor(model => model.Img)*@
+      
+        @if (Model.Img != null && Model.Img.Length > 0)
+        {
+            <img src="@Url.Action("GetImage", "User", new { id = Model.UserID })" alt="Profile Picture" />
+        }
+    </div>
+
+
+    @*<h4>A Community that welcomes</h4>*@
+
+    <hr />
+    <div class="vPRow">
+        <div class="vPcol">
+            <table class="viewProfile">
+                <tr>
+                    <td> @Html.DisplayNameFor(model => model.UserName):</td>
+                    <td> @Html.DisplayFor(model => model.UserName)</td>
+                </tr>
+                <tr>
+                    <td> @Html.DisplayNameFor(model => model.FirstName)</td>
+                    <td> @Html.DisplayFor(model => model.FirstName)</td>
+                </tr>
+                <tr>
+                    <td> @Html.DisplayNameFor(model => model.LastName)</td>
+                    <td> @Html.DisplayFor(model => model.LastName)</td>
+                </tr>
+                <tr>
+                    <td> @Html.DisplayNameFor(model => model.Email)</td>
+                    <td> @Html.DisplayFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <td> Phone number:</td>
+                    <td>  @Html.DisplayFor(model => model.Contact)</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+<table class="btnTableVP">
+    <tr>
+        <td class="detailsBtnOrg">
+            <div id="UpdateProfileBtn">
+                @Html.ActionLink("Update Profile", "Edit", new { id = Model.UserID })
+            </div>
+        </td>
+        <td id="detailsBtnOrg">
+            <div id="DeleteProfileBtn">
+                @Html.ActionLink("Delete Profile", "Index")
+            </div>
+        </td>
+    </tr>
+</table>
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

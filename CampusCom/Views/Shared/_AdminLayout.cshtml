@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | CAMPUS COM</title>
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+</head>
+<body>
+
+    <main id="app" class="admin-main-app">
+        <section id="left" class="admin-left">
+            
+            <nav>
+                <div>
+                    <a href="#"><h1 class="logo">CAMPUS COM</h1></a>
+                </div>
+
+                <div id="profile-div">
+                    <div id="admin-prof-img-div">
+                        <img src="~/Content/Images/admin-sub-profile-picture.jpg" alt="The Admins profile"/>
+                    </div>
+                    <h3 id="admin-username">Administrator</h3>
+                </div>
+
+                <div>
+                    <ul>
+                        <li><a href="/User/users"><iconify-icon icon="dashicons:admin-home"></iconify-icon><span>Users</span></a></li>
+                        <li><a href="/Admin/Index"><iconify-icon icon="fluent:people-community-32-filled" width="24" height="24"></iconify-icon><span>Community Requests</span></a></li>
+                        <li><a href="#"><iconify-icon icon="dashicons:admin-tools"></iconify-icon><span>Setting</span></a></li>
+                        <li><a href="#"><iconify-icon icon="clarity:info-solid" width="24" height="24"></iconify-icon><span>Information</span></a></li>
+                        <li><a href="#"><iconify-icon icon="material-symbols:admin-meds"></iconify-icon><span>Services</span></a></li>
+                        <li><a href="#"><iconify-icon icon="eos-icons:admin"></iconify-icon><span>Security</span></a></li>
+                        <li><a href="#"><iconify-icon icon="clarity:administrator-solid" width="24" height="24"></iconify-icon><span>Profile Update</span></a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <ul>
+                        <li class="li-btn">
+                            <a href="/User/Login" class="btn" id="yel-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1536 1664"><path fill="currentColor" d="M1536 896q0 156-61 298t-164 245t-245 164t-298 61t-298-61t-245-164t-164-245T0 896q0-182 80.5-343T307 283q43-32 95.5-25t83.5 50q32 42 24.5 94.5T461 487q-98 74-151.5 181T256 896q0 104 40.5 198.5T406 1258t163.5 109.5T768 1408t198.5-40.5T1130 1258t109.5-163.5T1280 896q0-121-53.5-228T1075 487q-42-32-49.5-84.5T1050 308q31-43 84-50t95 25q146 109 226.5 270t80.5 343zM896 128v640q0 52-38 90t-90 38t-90-38t-38-90V128q0-52 38-90t90-38t90 38t38 90z" /></svg> <span>Log Out</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="copyright-txt">
+                    <p>&copy; @DateTime.Now.Year - Megabyte Me Projects</p>
+                </div>
+            </nav>
+            
+        </section>
+
+
+        <section id="admin-right">
+
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+            <div class="admin-content">
+                <div id="admin-top">
+                    <div class="admin-card-div">
+                        <a href="#">
+                            <div class="admin-card">
+                                <iconify-icon icon="fluent:people-community-32-filled" width="24" height="24"></iconify-icon>
+                                <p>
+                                    Community Requests
+                                </p>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div class="admin-card">
+                                <iconify-icon icon="clarity:administrator-solid" width="24" height="24"></iconify-icon>
+                                <p>
+                                    Profile Update
+                                </p>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div class="admin-card">
+                                <iconify-icon icon="clarity:info-solid" width="24" height="24"></iconify-icon>
+                                <p>
+                                    Information
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="admin-time-div">
+                        <p>
+                            Welcome Admin | Time @DateTime.Now.Hour:@DateTime.Now.Minute
+                        </p>
+                    </div>
+
+                </div>
+                <div id="admin-content">
+                    @RenderBody()
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

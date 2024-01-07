@@ -1,0 +1,59 @@
+﻿@model CampusCom.Models.CommunityDetailsWithEventsViewModel
+
+@{
+    ViewBag.Title = "Community Details";
+    ViewBag.Header = Model.Community.ComName;
+    ViewBag.Subheader = "This community's information, as per user request. Feel free to explore.";
+    Layout = "~/Views/Shared/_Community.cshtml";
+}
+
+<div class="header-bar">
+    <div>
+        <h1 class="header-text">@ViewBag.Header</h1>
+        <div class="com-nav">
+            <a href="@Url.Action("DetailsMem", "MyCommunity", new { id = Model.Community.ComId })">Members</a>
+            <a href="@Url.Action("Details", "MyCommunity", new { id = Model.Community.ComId })">Posts</a>
+            <a href="@Url.Action("DetailsBroad", "MyCommunity", new { id = Model.Community.ComId })" class="active-com-nav">Broadcast</a>
+            <a href="@Url.Action("Edit", "MyCommunity", new { id = Model.Community.ComId })">Settings</a>
+        </div>
+    </div>
+</div>
+
+<div id="app-content">
+    <div class="actual-content">
+        <div class="actual-top">
+            <h1>Broadcasted Events</h1>
+            <p><small>See the already published posts for the respective community.</small></p>
+        </div>
+
+        <div class="post-div">
+
+            @if (Model.Events != null && Model.Events.Count > 0)
+            {
+
+                <ul>
+                    @foreach (var e in Model.Events)
+                    {
+                        <div class="post-hr"></div>
+                        <li class="post">
+                            <h3 class="post-title">@e.Title</h3>
+                            <p class="post-msg">@e.EventDescr</p>
+                            <p class="post-msg"><small>Venue: @e.Venue</small></p>
+                            <p class="pt-div"><small>Event Date: @e.EventDate.ToShortDateString()</small></p>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No posts available for this community.</p>
+            }
+
+            <div>
+                <a href="/Event/Create/">New Broadcast</a>
+            </div>
+        </div>
+
+
+    </div>
+</div>

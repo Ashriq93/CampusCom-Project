@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | Campus Com</title>
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    @{
+        var ses_id = Session["UserId"];
+        ViewBag.session = ses_id;
+    }
+
+    <main id="app">
+
+        <section id="left">
+
+            <nav class="">
+
+                <div>
+                    <a href="/Home/Index"><h1 class="logo">CAMPUS COM</h1></a>
+                </div>
+
+                <div>
+                    <ul>
+                        <li><a href="/User/Details/@ses_id"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M8 7a4 4 0 1 1 8 0a4 4 0 0 1-8 0Zm0 6a5 5 0 0 0-5 5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3a5 5 0 0 0-5-5H8Z" clip-rule="evenodd" /></svg> <span>Profile</span></a></li>
+                        <li><a href="/MyCommunity/Index/@ses_id"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5 8a3 3 0 1 0 0-6a3 3 0 0 0 0 6ZM2 10.768C2 9.79 2.791 9 3.768 9h4.767A3.981 3.981 0 0 0 8 11a3.99 3.99 0 0 0 1.354 3H8.268a2.77 2.77 0 0 0-2.593 1.796c-1.498-.366-2.427-1.183-2.974-2.093C2 12.536 2 11.336 2 11.127v-.36ZM16 11a3.98 3.98 0 0 0-.535-2h4.767C21.21 9 22 9.791 22 10.768v.36c0 .207 0 1.408-.7 2.575c-.548.91-1.477 1.727-2.975 2.093A2.769 2.769 0 0 0 15.732 14h-1.086A3.99 3.99 0 0 0 16 11Zm3.5-6a3 3 0 1 1-6 0a3 3 0 0 1 6 0Zm-13 11.768C6.5 15.79 7.291 15 8.268 15h7.464c.977 0 1.768.791 1.768 1.768v.36c0 .207 0 1.408-.7 2.575C16.057 20.937 14.613 22 12 22s-4.058-1.063-4.8-2.297c-.7-1.167-.7-2.367-.7-2.576v-.36ZM12 14a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z" /></svg> <span>My Communities</span></a></li>
+                        <li><a href="/Joined/Index/@ses_id"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="currentColor" d="M256 16c-48 0-80 32-80 64c0 48 16 80 32 96v16h96v-16c16-16 32-48 32-96c0-32-32-64-80-64zm-63.6 65.33L256 102.5l63.6-21.17l-39.2 97.97l-16.8-6.6l24.8-62l-32.4 10.8l-32.4-10.8l24.8 62l-16.8 6.6l-39.2-97.97zm-83.3 79.07c-23.4 3-44.6 30.5-44.6 65.9c0 19.6 6.8 36.9 16.7 48.9l11.9 14.2l-18.3 3.4c-12.9 2.5-22.3 9.3-30.4 20.4c-8.1 11.1-14.3 26.5-18.6 44.4C18 389.8 16.2 429.2 16 464h42.8l2.24 30H169.6l2-30h40.8c0-35.2-.4-75.1-7.5-107.7c-4-17.9-9.9-33.3-18.1-44.3c-8.2-11-18.1-17.8-32.6-20l-18.5-2.9l11.7-14.7c9.5-11.9 15.9-29 15.9-48.1c0-37.8-23.6-65.8-49.4-65.8l-4.8-.1zm283.6 0c-23.4 3-44.6 30.5-44.6 65.9c0 19.6 6.8 36.9 16.7 48.9l11.9 14.2l-18.3 3.4c-12.9 2.5-22.3 9.3-30.4 20.4c-8.1 11.1-14.3 26.5-18.6 44.4c-7.8 32.2-9.6 71.6-9.8 106.4h42.8l2.2 30h108.6l2-30H496c0-35.2-.4-75.1-7.5-107.7c-4-17.9-9.9-33.3-18.1-44.3c-8.2-11-18.1-17.8-32.6-20l-18.5-2.9l11.7-14.7c9.5-11.9 15.9-29 15.9-48.1c0-37.8-23.6-65.8-49.4-65.8l-4.8-.1zM208 209v18h96v-18h-96zm16 34v18h64v-18h-64z" /></svg> <span>Membership</span></a></li>
+                        <li><a href="/Academic/Index"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor"><path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337a49.949 49.949 0 0 0-9.902 3.912l-.003.002l-.34.18a.75.75 0 0 1-.707 0A50.009 50.009 0 0 0 7.5 12.174v-.224a.36.36 0 0 1 .172-.311a54.614 54.614 0 0 1 4.653-2.52a.75.75 0 0 0-.65-1.352a56.129 56.129 0 0 0-4.78 2.589a1.858 1.858 0 0 0-.859 1.228a49.803 49.803 0 0 0-4.634-1.527a.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" /><path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282a61.14 61.14 0 0 1 .255 4.285a.75.75 0 0 1-.46.71a47.878 47.878 0 0 0-8.105 4.342a.75.75 0 0 1-.832 0a47.877 47.877 0 0 0-8.104-4.342a.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 0 1 6 13.18v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11c.452.213.901.434 1.346.661a6.729 6.729 0 0 0 .551-1.608a1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.668a2.25 2.25 0 0 0 2.12 0Z" /><path d="M4.462 19.462c.42-.419.753-.89 1-1.394c.453.213.902.434 1.347.661a6.743 6.743 0 0 1-1.286 1.794a.75.75 0 1 1-1.06-1.06Z" /></g></svg> <span>Academic</span></a></li>
+                        <li><a href="/Political/Index"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="currentColor" d="m329.8 235.69l62.83-82.71l42.86 32.56l-62.83 82.75zm-12.86-9.53l66.81-88l-45-34.15l-66.81 88zm-27.48-97.78l-19.3 39.57l57-75l-42.51-32.3l-36.24 47.71zm-20.74-73.24l-46.64-35.43l-42 55.31l53.67 26.17zm107 235.52l-139-102.71l-9.92.91l4.56 2l62.16 138.43l-16.52 2.25l-57.68-128.5l-40-17.7l-4-30.84l39.41 19.42l36.36-3.33l17-34.83l-110.9-54.09l-80.68 112.51L177.6 346.67l-22.7 145.62H341V372.62l35.29-48.93L387 275.77z" /></svg> <span>Political</span></a></li>
+                        <li><a href="/Social/Index"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><g fill="currentColor"><path fill-rule="evenodd" d="M42 17a6 6 0 0 1-5.57 5.985l-3.051 3.05c.855 1.447 1.24 3.367 1.429 5.502c.192 2.169.192 4.705.192 7.428V40h-2v-1c0-2.764 0-5.215-.184-7.286c-.161-1.814-.455-3.227-.943-4.253c-1.197-.16-2.29-.762-3.226-1.504c-1.104-.874-2.086-2.015-2.894-3.115a29.404 29.404 0 0 1-2.105-3.342c-1.344.93-3.155 1.5-5.148 1.5c-4.142 0-7.5-2.462-7.5-5.5c0-2.793 2.838-5.1 6.515-5.453C18.797 7.692 22.335 6 26.5 6c4.708 0 8.616 2.163 9.369 5.001L36 11a6 6 0 0 1 6 6Zm-11.973.573A14.46 14.46 0 0 1 26.5 18c-.434 0-.862-.018-1.28-.054l-.076.108c.108.208.25.477.424.787a27.419 27.419 0 0 0 1.908 2.967v-.146c1.105 0 2.265-.597 3.227-1.308c.074-.054.146-.108.215-.163a5.964 5.964 0 0 1-.891-2.618Zm2.226 4.113a5.994 5.994 0 0 0 1.694.953l-2.62 2.62c-.465-.188-.946-.48-1.439-.87a10.58 10.58 0 0 1-1.003-.914c1.183-.306 2.23-.939 3.006-1.511c.126-.093.247-.186.362-.278Z" clip-rule="evenodd" /><path d="M15.504 28.002a2.5 2.5 0 1 0-.004-5a2.5 2.5 0 0 0 .004 5Zm-7 4a2.5 2.5 0 1 0-.004-5a2.5 2.5 0 0 0 .004 5ZM28.002 29.5a2.5 2.5 0 1 1-5 .004a2.5 2.5 0 0 1 5-.004ZM15 29a2 2 0 0 1 2 2v2h2a2 2 0 1 1 0 4h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2Zm-5 6a2 2 0 1 0-4 0v5a2 2 0 0 0 2 2h4a2 2 0 1 0 0-4h-2v-3Zm16-2a2 2 0 0 0-2 2v3h-2a2 2 0 1 0 0 4h4a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2Z" /></g></svg> <span>Social</span></a></li>
+                        <li><a href="/Sport/Index"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="currentColor" d="M338.8 31.81c-5 19.51-9.9 38.69-14.9 57.64c-45.3 7.27-90.5 7.28-135.8 0c-5-18.95-9.9-38.13-14.9-57.64c54.9 22.58 110.7 22.58 165.6 0zm17.3 4.59l34.4 45.95c-14 96.25-40 204.15-77.5 302.95c-10.7-12.4-25.2-21.3-41.8-24.7c28.3-111.3 56.6-212.3 84.9-324.2zm-200.2 0c28.3 111.9 56.6 212.9 84.9 324.2c-16.6 3.4-31.1 12.3-41.8 24.7c-37.5-98.8-63.5-206.7-77.5-302.95zM256 377c31.6 0 57 25.4 57 57s-25.4 57-57 57s-57-25.4-57-57s25.4-57 57-57z" /></svg> <span>Sport</span></a></li>
+                        <li><a href="/PubEvent/Index"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12.5 21H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4m-4-8v4" /><path d="M21.121 20.121a3 3 0 1 0-4.242 0c.418.419 1.125 1.045 2.121 1.879c1.051-.89 1.759-1.516 2.121-1.879zM19 18v.01M8 3v4m-4 4h16" /></g></svg> <span>Events</span></a></li>
+                        <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="currentColor" d="M405.3 0h-42.7v64h42.7V0zm-256 0h-42.7v64h42.7V0zm277.4 0v85.3h-85.3V0H170.7v85.3H85.3V0H0v512h512V0h-85.3zm42.6 469.3H42.7V128h426.7v341.3zm-64-245.3l-42.7-42.7l-149.3 149.4l-64-64l-42.7 42.7L213.3 416l192-192z" /></svg> <span>Attending</span></a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <ul>
+                        <li class="li-btn">
+                            <a href="/CreateCom/Create" class="btn" id="yel-btn">Create Community</a>
+                        </li>
+                        <li>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1536 1664"><path fill="currentColor" d="M1536 896q0 156-61 298t-164 245t-245 164t-298 61t-298-61t-245-164t-164-245T0 896q0-182 80.5-343T307 283q43-32 95.5-25t83.5 50q32 42 24.5 94.5T461 487q-98 74-151.5 181T256 896q0 104 40.5 198.5T406 1258t163.5 109.5T768 1408t198.5-40.5T1130 1258t109.5-163.5T1280 896q0-121-53.5-228T1075 487q-42-32-49.5-84.5T1050 308q31-43 84-50t95 25q146 109 226.5 270t80.5 343zM896 128v640q0 52-38 90t-90 38t-90-38t-38-90V128q0-52 38-90t90-38t90 38t38 90z" /></svg> <span>Log Out</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="copyright-txt">
+                    <p>&copy; @DateTime.Now.Year - Megabyte Me Projects</p>
+                </div>
+
+            </nav>
+
+        </section>
+
+
+        <section id="right">
+            <div class="search-bar">
+                <div class="search-div">
+                    <form action="/" method="post">
+                        <input class="search-input" type="text" name="name" value="" placeholder="search community name, id or code . . ." />
+                        <button class="search-btn" type="submit"> <iconify-icon icon="gala:search" width="24" height="24"></iconify-icon> </button>
+                    </form>
+                </div>
+                <div class="profile-name-div">
+                    <p><span class="top-username">Teq_Tiger</span> | Student</p>
+                    <div class="img-search-cont">
+                        <img class="search-prof-img" src="~/Content/Images/profile-circle-fill.svg" alt="Alternate Text" />
+                    </div>
+                </div>
+            </div>
+
+            @RenderBody();
+        </section>
+
+    </main>
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+﻿@model CampusCom.Models.COMMUNITY
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Community.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>COMMUNITY</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComDescr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComDescr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Privacy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Privacy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComImg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComImg)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ComId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

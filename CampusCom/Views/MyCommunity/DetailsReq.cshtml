@@ -1,0 +1,158 @@
+﻿@model CampusCom.Models.COMMUNITY
+
+@{
+    var comunityName = @Html.DisplayFor(model => model.ComName);
+    ViewBag.Title = "Requests";
+    ViewBag.Header = comunityName;
+    ViewBag.Subheader = "This communities information, as per user request. Feel free to explore.";
+    Layout = "~/Views/Shared/_Community.cshtml";
+
+}
+
+<div class="header-bar">
+    <div>
+        <h1 class="header-text"> @ViewBag.Header</h1>
+        <div class="com-nav">
+            <a href="@Url.Action("DetailsMem", "MyCommunity", new { id = Model.ComId })">Members</a>
+            <a href="@Url.Action("Details", "MyCommunity", new { id = Model.ComId })">Posts</a>
+            <a href="@Url.Action("DetailsBroad", "MyCommunity", new { id = Model.ComId })">Broadcast</a>
+            <a href="@Url.Action("Edit", "MyCommunity", new { id = Model.ComId })">Settings</a>
+        </div>
+    </div>
+</div>
+
+
+<div id="app-content">
+    <div class="actual-content">
+        <div class="actual-top">
+            <h1>Community Posts</h1>
+            <p><small>See the already published posts for the respective community.</small></p>
+        </div>
+
+        @*<div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.UserId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserId)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.ComName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ComName)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.ComDescr)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ComDescr)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.Privacy)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Privacy)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.ComStatus)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ComStatus)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.ComImg)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ComImg)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ComId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+*@
+
+    <div class="post-div">
+
+        <div class="post-hr"></div>
+        <div class="post">
+            <h2 class="post-title">
+                Meeting tommorrow!
+            </h2>
+            <p class="post-msg">
+                We are set to operate on Monday, please be on the lookout. we expect full attendance!
+            </p>
+            <p class="pt-div"><small class="post-time"> 10 July 2023, 10:00</small></p>
+        </div>
+
+
+        <div class="post-hr"></div>
+        <div class="post">
+            <h2 class="post-title">
+                Wednesday Outing!
+            </h2>
+            <p class="post-msg">
+                We are set to operate on Monday, please be on the lookout. we expect full attendance!
+            </p>
+            <p class="pt-div"><small class="post-time"> 13 February 2023, 12:00</small></p>
+        </div>
+
+
+        <div class="post-hr"></div>
+        <div class="post">
+            <h2 class="post-title">
+                AGM is due!
+            </h2>
+            <p class="post-msg">
+                Our Annual General Meeting is set to be held, all are invited - tea and coffe will be served.
+            </p>
+            <p class="pt-div"><small class="post-time"> 10 July 2023, 10:00</small></p>
+        </div>
+
+
+        <div class="post-hr"></div>
+        <div class="post">
+            <h2 class="post-title">
+                Fun Day Hike!
+            </h2>
+            <p class="post-msg">
+                To raise funds and awareness, there is a fun day scheduled for Kragga Kamma - join us.
+            </p>
+            <p class="pt-div"><small class="post-time"> 10 July 2023, 10:00</small></p>
+        </div>
+
+    </div>
+    </div>
+</div>

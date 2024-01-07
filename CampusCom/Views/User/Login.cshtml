@@ -1,0 +1,98 @@
+﻿@model CampusCom.Controllers.UserController.LoginModel
+
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginRegLayout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="RegisterLoginHeadingTXT">Welcome To CampusCOM</div>
+        @*<div class="b">
+                @Html.ActionLink("Back to List", "Index")
+            </div>*@
+
+        <div class="registerRow">
+            <div class="leftSide"></div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+
+                <table id="registerTable">
+                    <tr>
+                        <td colspan="2">
+                            <p id="logIN">Log In</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><p id="account">Dont have an account?/ @Html.ActionLink("Create an account", "Create")</p></td>
+                    </tr>
+                    <tr>
+                        <td class="Labels">
+                            @Html.LabelFor(model => model.Username, "Username:", htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Username" } })
+                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="Labels">
+                            @Html.LabelFor(model => model.Passwd, "Password:", htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                @Html.EditorFor(model => model.Passwd, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password", type = "password" } })
+
+                                <span class="input-group-text">
+                                    <i class="fas fa-eye" id="togglePassword" style="cursor: pointer; background-color: white; color: black;"></i>
+                                </span>
+
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Passwd, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                </table>
+
+                <div class="MoveSubmitbtn">
+                    <input type="submit" value="Login" class="submitbtn" />
+                </div>
+
+            </div>
+            <div class="rightSide"></div>
+        </div>
+
+    </div>
+
+}
+
+<script>
+    function openFileInput() {
+        const fileInput = document.getElementById("fileInput");
+        fileInput.click();
+    }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const passwordInput = document.querySelector('#Passwd'); // Correct the ID to match your input element.
+        const togglePassword = document.querySelector('#togglePassword');
+
+        togglePassword.addEventListener('click', function () {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    });
+</script>
