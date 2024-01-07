@@ -145,7 +145,7 @@
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SocialController.cs" />
     <Compile Include="Controllers\SportController.cs" />
-    <Compile Include="Controllers\userController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data\CampusComContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

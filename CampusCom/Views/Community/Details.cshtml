@@ -1,0 +1,93 @@
+﻿@model CampusCom.Models.COMMUNITY
+
+@{
+    ViewBag.Title = "Community Details";
+    ViewBag.Header = "Community Details";
+    ViewBag.Subheader = "This communities information, as per user request. Feel free to explore.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="app-content">
+    <div class="actual-content">
+        <div class="actual-top">
+            <h1>Community Details</h1>
+            <p><small>See the details of an already published community.</small></p>
+        </div>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.UserId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserId)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.ComName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ComName)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.ComDescr)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ComDescr)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.Privacy)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Privacy)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.ComStatus)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ComStatus)
+                </dd>
+
+                <dt class="the-bold">
+                    @Html.DisplayNameFor(model => model.ComImg)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ComImg)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ComId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
+    </div>
+</div>
