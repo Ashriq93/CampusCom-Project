@@ -1,0 +1,326 @@
+﻿/* Set padding to keep content from hitting the edges */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&family=Plaster&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    list-style-type: none !important;
+}
+/*.font {
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Plaster', cursive;
+}*/
+
+/*.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+/*.dl-horizontal dt {
+    white-space: normal;
+}*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+/** {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    list-style-type: none !important;
+}*/
+.AdminDisplay {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+/**/
+body {
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    list-style-type: none !important;
+}
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+/*.dl-horizontal dt {
+    white-space: normal;
+}*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+/***************************************************************/
+/**** LoginRegLayout.cshtml top of the Page
+            Includes the Logo line of Page     **********/
+/***************************************************************/
+
+/*
+.columnRegLog {
+    float: left;
+}*/
+
+.columnReglogleft {
+    /* width: 25vw;*/
+    background-color: #00004d;
+    padding-top: 0.8em;
+    padding-left: 2em;
+    padding-bottom: 0.1em;
+    text-align: left;
+}
+
+/*.columnRegLogright {*/
+/*width: 75vw;*/
+/*background-color: #00004d;
+    height:0.1em;
+}*/
+.logoLoginRegister {
+    /* font-family: 'Baloo Thambi 2',cursive;*/
+    font-family: 'Roboto','Baloo Thambi';
+    color: #f9f206;
+    font-size: 2.2em;
+    text-decoration: none;
+}
+/************************************************************/
+/*Stlye Sheet for register Page: the bottom part of the 
+    when a user registers, It uses the Create.cshtml*/
+/************************************************************/
+
+.registerPage { /**/
+    position: center;
+    /*  background-color:whitesmoke;*/
+    background-color: whitesmoke;
+    width: 100vw;
+    /*height:80vh;*/
+}
+
+.leftSide {
+    width: 36vw;
+}
+
+.rightSide {
+    width: 36vw;
+}
+
+.registerRow {
+    display: flex;
+    /* width: 100vw;*/
+    /*background-color: #004080;*/
+    background-color: #f3f2f2f6;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+    /* border-bottom: 2px solid #004080;*/
+    /*padding-left:25vw;
+*/
+}
+
+.app-content {
+    text-align: center;
+}
+/*
+TABLE For registration*/
+#registerTable {
+    border-collapse: collapse;
+    background-color: #00004d;
+    /* width: 40rem;*/
+    padding: 0.1em;
+    border-radius: 8px;
+    /*  padding: 1.5rem !important;*/
+}
+
+/*These labels are concerned with Usernam,Name etc*/
+
+td {
+    width: 150vw;
+}
+
+tr {
+    height: 2.7em;
+}
+
+.submitbtn {
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 7em;
+    height: 2.4em;
+    text-align: center;
+}
+
+.MoveSubmitbtn {
+    padding-top: 1em;
+    text-align: center;
+}
+
+.control-label {
+    width: 8.5em;
+    text-align: left;
+    background-color: #00004d;
+    color: whitesmoke;
+    font-size: 18px;
+}
+
+/*TEXT BOX User inputs*/
+.form-control {
+    background-color: white;
+    font-size: 16px;
+    max-height: 1.9em;
+    border: 2px solid #f5f5ef;
+}
+
+.RegisterLoginHeadingTXT {
+    text-align: center;
+    background-color: lightgrey;
+    /* background-color: #ffffe6;*/
+    font-size: 1.8em;
+    font-family: 'Roboto','Baloo Thambi';
+    /* font-family: 'Baloo Thambi 2',cursive;*/
+    color: #00004d;
+    /* border-top: 3px solid #004080;*/
+    padding-top: 0.1em;
+    padding-bottom: 0.2em;
+    text-decoration: underline;
+    /*    border-bottom: 3px solid #004080;*/
+}
+
+/*   This part is found at the bottom of the create page and includes
+    the tag h3 Create a Campus Com account*/
+
+.form-horizontal {
+    /* background-color: #00004d;*/
+    background-color: white;
+    width: 100vw;
+    position: center;
+}
+
+.form-group {
+    background-color: #00004d;
+    border-radius: 8px;
+    padding: 1.1rem !important;
+    width: 26rem;
+    text-align: center;
+}
+
+.Labels {
+    width: 50vw;
+    text-align: left;
+    /*   background-color:green;
+    border-collapse:collapse;*/
+}
+
+.editProfileTable {
+    background-color: aqua;
+}
+
+.input-group-text {
+    /* height: 1.5em;*/
+    background-color: white;
+    border: none;
+}
+/* Style the "Select Role" dropdown */
+.role-dropdown {
+    height: 34px; /* Adjust the height as needed */
+    vertical-align: middle; /* Align the dropdown vertically */
+    /* padding: 6px 12px;*/ /* Add padding to match other input fields */
+    line-height: normal; /* Adjust line-height to fit the text */
+}
+
+    .role-dropdown:hover {
+        cursor: pointer;
+    }
+
+#togglePassword {
+    color: white; /* Change the color to your preferred color */
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+}
+
+    /* Hover effect for the custom file upload button */
+    .custom-file-upload:hover {
+        background-color: #2980b9;
+    }
+
+/*.input-group-append
+{
+   background-color:white !important;
+   border-radius:5px;
+   padding-top:0.2em;
+
+}*/
+
+.create-label {
+    text-align: left;
+    background-color: #00004d;
+    color: whitesmoke;
+    font-size: 18px;
+}
+
+footer {
+    background-color: aliceblue;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#logIN {
+    background-color: #00004d;
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+#account {
+    color: aliceblue;
+}
+
+    #account:hover {
+        color: white;
+    }
+
+    #account:active {
+        color: white;
+    }
